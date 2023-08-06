@@ -14,3 +14,4 @@ function isCurrentPage($urlPage = '/') {
   $url = $_SERVER['REQUEST_URI'];
   return $url === $urlPage;
 }
+

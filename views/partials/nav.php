@@ -10,8 +10,8 @@
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <a href="/" <?= menuClasses('/') ?> <?= menuAria('/') ?>>Home</a>
-              <a href="/about.php" <?= menuClasses('/about.php') ?> <?= menuAria('/about.php') ?>>About Us</a>
-              <a href="/contact.php" <?= menuClasses('/contact.php') ?> <?= menuAria('/contact.php') ?>>Contact Us</a>
+              <a href="/about" <?= menuClasses('/about') ?> <?= menuAria('/about') ?>>About Us</a>
+              <a href="/contact" <?= menuClasses('/contact') ?> <?= menuAria('/contact') ?>>Contact Us</a>
             </div>
           </div>
         </div>
