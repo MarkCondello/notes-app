@@ -15,3 +15,10 @@ function isCurrentPage($urlPage = '/') {
   return $url === $urlPage;
 }
 
+function dd($val){
+  echo '<pre>';
+  var_dump($val);
+  echo '</pre>';
+  die();
+}
+
