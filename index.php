@@ -1,15 +1,13 @@
 <?php
 require 'functions.php';
 require 'router.php';
-
+require 'Database.php';
 // connect to our MySQL database.
-$dsn = 'mysql:host=localhost;port=3306;dbname=notes-app;charset=utf8';
-$pdo = new PDO($dsn, 'root', 'root');
 
-$statement = $pdo->prepare("select * from posts");
-$statement->execute();
+$db = new Database();
+$posts = $db->query("select * from posts")->fetchAll();
+// $post = $db->query("select * from posts where id = 1")->fetch(PDO::FETCH_ASSOC);
 
-$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 echo '<pre>';
 var_dump($posts);
 echo '</pre>';
