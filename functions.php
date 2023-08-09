@@ -22,3 +22,8 @@ function dd($val){
   die();
 }
 
+function authorize($stmnt, $status = Response::FORBIDDEN){
+  if (!$stmnt) {
+    abort($status);
+  }
+}
