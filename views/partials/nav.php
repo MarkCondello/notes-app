@@ -11,6 +11,7 @@
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <a href="/" <?= menuClasses('/') ?> <?= menuAria('/') ?>>Home</a>
               <a href="/about" <?= menuClasses('/about') ?> <?= menuAria('/about') ?>>About Us</a>
+              <a href="/notes" <?= menuClasses('/notes') ?> <?= menuAria('/notes') ?>>Notes</a>
               <a href="/contact" <?= menuClasses('/contact') ?> <?= menuAria('/contact') ?>>Contact Us</a>
             </div>
           </div>
