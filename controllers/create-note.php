@@ -1,16 +1,15 @@
 <?php
 $config = require 'config.php';
+require 'Validator.php';
 $db = new Database($config['database']);
 $bannerTitle = 'Create a note';
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
+  // dd(Validator::email('test@test.com'));
   $errors = [];
   if (isset($_POST['body'])) {
-    if (strlen($_POST['body']) === 0) {
-      $errors['body'] = 'A body is required';
-    }
-    if (strlen($_POST['body']) > 100) {
-      $errors['body'] = 'The body can not be more than 100 characters.';
+    if (! Validator::string($_POST['body'], 1, 100)) {
+      $errors['body'] = 'A body of no more than 100 characters is required.';
     }
     if(empty($errors)) {
       // persist
@@ -22,6 +21,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
   } else {
     // provide error message
+    $errors['body'] = 'A body is required';
   }
 }
 require 'views/note-create.php';

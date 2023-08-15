@@ -17,9 +17,8 @@ require 'partials/banner.php'; ?>
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           id="body"
           name="body"
-        ><?= $_POST['body'] ?? '' ?>
-        </textarea>
-         <?php if($errors['body']): ?>
+        ><?= $_POST['body'] ?? '' ?></textarea>
+         <?php if (isset($errors['body'])): ?>
           <p class="text-red-500 text-xs mt-2"><?= $errors['body']; ?></p>
          <?php endif;
          ?>
