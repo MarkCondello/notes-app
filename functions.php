@@ -27,3 +27,14 @@ function authorize($stmnt, $status = Response::FORBIDDEN){
     abort($status);
   }
 }
+
+function basePath($path)
+{
+ return BASE_PATH . $path;
+}
+
+function view($path, $attrs = []){
+  // dd($attrs);
+  extract($attrs);// this extracts the $attrs and makes them publicly available or something
+  require basePath('views/' . $path);
+}

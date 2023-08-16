@@ -1,3 +1,4 @@
 <?php
-$bannerTitle = 'About Us';
-require 'views/about.view.php';
+require view('about.view.php', [
+  'bannerTitle' => 'About us',
+]);

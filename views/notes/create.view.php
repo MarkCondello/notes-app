@@ -1,7 +1,7 @@
 <?php
-require 'views/partials/head.php';
-require 'views/partials/nav.php';
-require 'views/partials/banner.php'; ?>
+require basePath('views/partials/head.php');
+require basePath('views/partials/nav.php');
+require basePath('views/partials/banner.php'); ?>
 <main>
   <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
     <form
@@ -34,4 +34,4 @@ require 'views/partials/banner.php'; ?>
   </div>
 </main>
 <?php
-require 'views/partials/foot.php';
+require basePath('views/partials/foot.php');

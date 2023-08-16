@@ -1,12 +1,12 @@
 <?php
-$config = require 'config.php';
-require 'Validator.php';
+$config = require basePath('config.php');
+require basePath('Validator.php');
 $db = new Database($config['database']);
-$bannerTitle = 'Create a note';
+// $bannerTitle = 'Create a note';
+$errors = [];
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
   // dd(Validator::email('test@test.com'));
-  $errors = [];
   if (isset($_POST['body'])) {
     if (! Validator::string($_POST['body'], 1, 100)) {
       $errors['body'] = 'A body of no more than 100 characters is required.';
@@ -24,4 +24,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors['body'] = 'A body is required';
   }
 }
-require 'views/notes/create.php';
+// require 'views/notes/create.php';
+require view('notes/create.view.php', [
+  'bannerTitle' => 'Create a note',
+  'errors' => $errors
+]);
