@@ -17,11 +17,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         'body' => $_POST['body'],
         'user_id' => 1,
       ]);
-      //redirect
+      //redirect with success???
     }
   } else {
     // provide error message
     $errors['body'] = 'A body is required';
   }
 }
-require 'views/note-create.php';
+require 'views/notes/create.php';

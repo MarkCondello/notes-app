@@ -10,4 +10,4 @@ $note = $db->query($query, [
 
 authorize($note['user_id'] == 1);
 
-require 'views/note.view.php';
+require 'views/notes/show.view.php';
