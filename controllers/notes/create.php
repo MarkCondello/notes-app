@@ -1,6 +1,8 @@
 <?php
+use Core\Database;
+use Core\Validator;
+
 $config = require basePath('config.php');
-require basePath('Validator.php');
 $db = new Database($config['database']);
 $errors = [];
 
@@ -23,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors['body'] = 'A body is required';
   }
 }
-// require 'views/notes/create.php';
+
 require view('notes/create.view.php', [
   'bannerTitle' => 'Create a note',
   'errors' => $errors

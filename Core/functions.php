@@ -1,4 +1,5 @@
 <?php
+use Core\Response;
 
 function menuClasses($urlPage) {
   $classes = 'rounded-md px-3 py-2 text-sm font-medium ';

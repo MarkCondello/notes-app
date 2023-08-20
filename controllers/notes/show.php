@@ -1,4 +1,6 @@
 <?php
+use Core\Database;
+
 $config = require basePath('config.php');
 $db = new Database($config['database']);
 $query = "select * from notes where id = :noteId";
