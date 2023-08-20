@@ -14,27 +14,22 @@ function isCurrentPage($urlPage = '/') {
   $url = $_SERVER['REQUEST_URI'];
   return $url === $urlPage;
 }
-
-function dd($val){
+function dd($val) {
   echo '<pre>';
   var_dump($val);
   echo '</pre>';
   die();
 }
-
 function authorize($stmnt, $status = Response::FORBIDDEN){
   if (!$stmnt) {
     abort($status);
   }
 }
-
-function basePath($path)
-{
+function basePath($path) {
  return BASE_PATH . $path;
 }
-
-function view($path, $attrs = []){
+function view($path, $attrs = []) {
   // dd($attrs);
-  extract($attrs);// this extracts the $attrs and makes them publicly available or something
+  extract($attrs); // this extracts the $attrs associated array and makes them publicly available or something
   require basePath('views/' . $path);
 }
