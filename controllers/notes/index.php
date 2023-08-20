@@ -1,6 +1,7 @@
 <?php
 $config = require basePath('config.php');
 $db = new Database($config['database']);
+
 $query = "select * from notes where user_id = :userId";
 $notes = $db->query($query, ['userId' => 1])->get();
 

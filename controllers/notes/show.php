@@ -1,6 +1,5 @@
 <?php
 $config = require basePath('config.php');
-// $bannerTitle = 'My note';
 $db = new Database($config['database']);
 $query = "select * from notes where id = :noteId";
 

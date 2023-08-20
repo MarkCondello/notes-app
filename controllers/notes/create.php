@@ -2,7 +2,6 @@
 $config = require basePath('config.php');
 require basePath('Validator.php');
 $db = new Database($config['database']);
-// $bannerTitle = 'Create a note';
 $errors = [];
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {

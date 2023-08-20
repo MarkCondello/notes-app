@@ -7,5 +7,4 @@ return [
     'dbname' => 'notes-app',
     'charset' => 'utf8',
   ],
-  
 ];

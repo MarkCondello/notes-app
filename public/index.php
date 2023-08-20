@@ -1,17 +1,13 @@
 <?php
-const BASE_PATH = __DIR__ . '/../';
-
-// var_dump(BASE_PATH);
-
-// echo "FGGF !";
-
+const BASE_PATH = __DIR__ . '/../'; // var_dump(BASE_PATH);
 require BASE_PATH . 'functions.php';
 
-require basePath('Database.php');
-require basePath('Response.php');
-require basePath('router.php');
+spl_autoload_register(function ($class){
+  // dd($class);
+  require basePath("Core/{$class}.php");
+});
 
-// $config = require 'config.php';
+require basePath('router.php');
 
 // $db = new Database($config['database']);
 // $id = $_GET['id'];
