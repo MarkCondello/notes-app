@@ -8,6 +8,10 @@ require basePath('views/partials/banner.php'); ?>
       <a href="/notes" class="text-blue-500 underline">Go back</a>
     </p>
     <p><?= htmlspecialchars($note['body']) ?></p>
+    <form method="POST">
+      <input type="hidden" name="noteId" value="<?= $note['id'] ?>" />
+      <button type="submit" class="text-sm text-red-500">Delete</button>
+    </form>
   </div>
 </main>
 <?php
