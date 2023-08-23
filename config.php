@@ -1,5 +1,4 @@
 <?php
-// echo "GGF!";
 return [
   'database' => [
     'host' => 'localhost',

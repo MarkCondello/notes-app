@@ -5,7 +5,6 @@ use Core\Response;
 
 class Router {
   protected $routes = [];
-
   public function get($uri, $controller)
   {
     $this->add('GET', $uri, $controller);
@@ -26,7 +25,6 @@ class Router {
   {
     $this->add('PUT', $uri, $controller);
   }
-
   protected function add($method, $uri, $controller)
   {
     $this->routes[] = [
@@ -35,10 +33,8 @@ class Router {
       'method' => $method,
     ];
   }
-
   public function route($uri, $method)
-  {
-    // dd($this->routes);
+  { // dd($this->routes);
     foreach ($this->routes as $route){
       if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
         return require basePath($route['controller']);
@@ -46,7 +42,6 @@ class Router {
     }
     $this->abort();
   }
-
   protected function abort($code = Response::NOT_FOUND)
   {
     HTTP_response_code($code);

@@ -6,6 +6,5 @@ In our root `index.php` file we are using the PHP `spl_autoload_register()` func
 
 We have also added these infrastructure classes into the `Core` directory.
 
-
 ### Loading data to view
 With our `view($attr)` function, we can pass an associative array which exposes the values to the view by using the PHP `extract()` function.

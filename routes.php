@@ -1,5 +1,4 @@
 <?php
-
 // this is how we are appending to the routes array in Router.php
 $router->get('/', 'controllers/index.php');
 $router->get('/about', 'controllers/about.php');

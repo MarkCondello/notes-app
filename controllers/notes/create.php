@@ -13,15 +13,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
       $errors['body'] = 'A body of no more than 100 characters is required.';
     }
     if(empty($errors)) {
-      // persist
       $db->query('INSERT INTO notes(body, user_id) VALUES(:body, :user_id)', [
         'body' => $_POST['body'],
         'user_id' => 1,
       ]);
       //redirect with success???
     }
-  } else {
-    // provide error message
+  } else { // provide error message
     $errors['body'] = 'A body is required';
   }
 }

@@ -28,5 +28,4 @@
 // $bannerTitle = 'Home';
 require view('index.view.php', [
   'bannerTitle' => 'Home',
-  'foo' => 'BARR',
 ]);
