@@ -1,5 +1,5 @@
 <?php
-const BASE_PATH = __DIR__ . '/../'; // var_dump(BASE_PATH);
+const BASE_PATH = __DIR__ . '/../';
 require BASE_PATH . 'Core/functions.php';
 
 spl_autoload_register(function ($class){
@@ -9,4 +9,8 @@ spl_autoload_register(function ($class){
   require basePath("{$class}.php");
 });
 
-require basePath('Core/router.php');
+$router = new \Core\Router();
+$routes = require basePath('routes.php');
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+$method = $_SERVER['POST']['_method'] ?? $_SERVER['REQUEST_METHOD'];
+$router->route($uri, $method);

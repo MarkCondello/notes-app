@@ -1,21 +1,56 @@
 <?php
+namespace Core;
+
 use Core\Response;
 
-$routes = require basePath('routes.php');
-// DevNote: To make this router work, we needed to force all traffic to go through this index.php file with a .htaccess redirect rule.
-// DevNote: parse_url will break the uri into parts ie 'path' and 'query'.
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+class Router {
+  protected $routes = [];
 
-function abort($code = Response::NOT_FOUND){
-  HTTP_response_code($code);
-  require basePath("views/{$code}.view.php"); // load view from the root dir
-  die();
-}
-function routeToController($uri, $routes) {
-  if (array_key_exists($uri, $routes)) {
-    require basePath($routes[$uri]); // load controller from the root dir
-  } else {
-    abort();
+  public function get($uri, $controller)
+  {
+    $this->add('GET', $uri, $controller);
+  }
+  public function post($uri, $controller)
+  {
+    $this->add('POST', $uri, $controller);
+  }
+  public function delete($uri, $controller)
+  {
+    $this->add('DELETE', $uri, $controller);
+  }
+  public function patch($uri, $controller)
+  {
+    $this->add('PATCH', $uri, $controller);
+  }
+  public function put($uri, $controller)
+  {
+    $this->add('PUT', $uri, $controller);
+  }
+
+  protected function add($method, $uri, $controller)
+  {
+    $this->routes[] = [
+      'uri' => $uri,
+      'controller' => $controller,
+      'method' => $method,
+    ];
+  }
+
+  public function route($uri, $method)
+  {
+    // dd($this->routes);
+    foreach ($this->routes as $route){
+      if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
+        return require basePath($route['controller']);
+      }
+    }
+    $this->abort();
+  }
+
+  protected function abort($code = Response::NOT_FOUND)
+  {
+    HTTP_response_code($code);
+    require basePath("views/{$code}.view.php"); // load view from the root dir
+    die();
   }
 }
-routeToController($uri, $routes);

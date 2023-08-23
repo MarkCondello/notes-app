@@ -34,3 +34,9 @@ function view($path, $attrs = []) {
   extract($attrs); // this extracts the $attrs associated array and makes them publicly available or something
   require basePath('views/' . $path);
 }
+function abort($code = Response::NOT_FOUND)
+{
+  HTTP_response_code($code);
+  require basePath("views/{$code}.view.php"); // load view from the root dir
+  die();
+}
