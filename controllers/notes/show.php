@@ -5,22 +5,22 @@ $config = require basePath('config.php');
 $db = new Database($config['database']);
 $query = "select * from notes where id = :noteId";
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  dd('REACHED DESTROY');
-  $note = $db->query($query, [
-    'noteId' => $_GET['id'],
-    ])->findOrFail();
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//   dd('REACHED DESTROY');
+//   $note = $db->query($query, [
+//     'noteId' => $_GET['id'],
+//     ])->findOrFail();
 
-  authorize($note['user_id'] == 1);
+//   authorize($note['user_id'] == 1);
 
-  $db->query('DELETE FROM notes where id = :noteId', [
-    'noteId' => $_POST['noteId'],
-  ]);
-  // redirect to posts
-  header('Location: '. '/notes');
-  exit();
+//   $db->query('DELETE FROM notes where id = :noteId', [
+//     'noteId' => $_POST['noteId'],
+//   ]);
+//   // redirect to posts
+//   header('Location: '. '/notes');
+//   exit();
 
-} else {
+// } else {
 
   $note = $db->query($query, [
     'noteId' => $_GET['id'],
@@ -32,4 +32,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     'bannerTitle' => 'My note',
     'note' => $note,
   ]);
-}
+// }
