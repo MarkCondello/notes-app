@@ -6,6 +6,7 @@ $db = new Database($config['database']);
 $query = "select * from notes where id = :noteId";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  dd('REACHED DESTROY');
   $note = $db->query($query, [
     'noteId' => $_GET['id'],
     ])->findOrFail();

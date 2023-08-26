@@ -12,5 +12,12 @@ spl_autoload_register(function ($class){
 $router = new \Core\Router();
 $routes = require basePath('routes.php');
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-$method = $_SERVER['POST']['_method'] ?? $_SERVER['REQUEST_METHOD'];
+
+$method = $_SERVER['POST']['_method'] ?? $_SERVER['REQUEST_METHOD']; // deletes are not getting read through POST superglobal
+// echo "<pre>";
+// var_dump($_SERVER);
+// echo "</pre>";
+
+// $method = isset($_SERVER['POST']) ? 'posty' : 'something else';
+  // dd(  $method );
 $router->route($uri, $method);

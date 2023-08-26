@@ -27,12 +27,15 @@ function authorize($stmnt, $status = Response::FORBIDDEN){
   }
 }
 function basePath($path) {
+    // dd($path);
  return BASE_PATH . $path;
 }
 function view($path, $attrs = []) {
-  // dd($attrs);
+    // dd(basePath('views/' . $path));
   extract($attrs); // this extracts the $attrs associated array and makes them publicly available or something
   require basePath('views/' . $path);
+
+  // return require basePath('views/' . $path);
 }
 function abort($code = Response::NOT_FOUND)
 {

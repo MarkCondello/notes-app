@@ -34,12 +34,17 @@ class Router {
     ];
   }
   public function route($uri, $method)
-  { // dd($this->routes);
+  {
+    // dd($this->routes);
+    // dd($method);
     foreach ($this->routes as $route){
       if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
-        return require basePath($route['controller']);
+        // dd($route['uri']);
+        // dd($route['method']);
+        return require basePath($route['controller']); // this is throwing an error
       }
     }
+    var_dump($uri, $method);
     $this->abort();
   }
   protected function abort($code = Response::NOT_FOUND)
