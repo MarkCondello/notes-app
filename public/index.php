@@ -13,6 +13,12 @@ $router = new \Core\Router();
 $routes = require basePath('routes.php');
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  echo "<pre>";
+  var_dump($_SERVER['POST']);
+  echo "</pre>";
+}
+
 $method = $_SERVER['POST']['_method'] ?? $_SERVER['REQUEST_METHOD']; // deletes are not getting read through POST superglobal
 // echo "<pre>";
 // var_dump($_SERVER);
