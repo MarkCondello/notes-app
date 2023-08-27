@@ -15,7 +15,7 @@ require basePath('views/partials/banner.php'); ?>
     <?php endforeach ?>
     </ul>
     <p class="mt-5">
-      <a href="/note/create" class="text-blue-500 hover:underline">Create a note</a>
+      <a href="/notes/create" class="text-blue-500 hover:underline">Create a note</a>
     </p>
   </div>
 </main>

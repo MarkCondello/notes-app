@@ -9,8 +9,8 @@ require basePath('views/partials/banner.php'); ?>
     </p>
     <p><?= htmlspecialchars($note['body']) ?></p>
     <p><?= '/note' ?></p>
-    <!-- <form> -->
-    <form method="POST" action="/note">
+    <!-- <form  action="/notes"> -->
+    <form class="mt-6" method="POST">
       <input type="hidden" name="_method" value="DELETE" />
       <input type="hidden" name="id" value="<?= $note['id'] ?>" />
       <button type="submit" class="text-sm text-red-500">Delete</button>
