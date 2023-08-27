@@ -3,8 +3,6 @@ use Core\Database;
 
 $config = require basePath('config.php');
 $db = new Database($config['database']);
-dd('Reached destroy');
-
 $note = $db->query("select * from notes where id = :noteId", [
   'noteId' => $_POST['id'],
 ])->findOrFail();

@@ -36,8 +36,8 @@ class Router {
   public function route($uri, $method)
   {
     foreach ($this->routes as $route){
-      echo "{$route['uri']} {$uri} {$route['method']} {$method}";
-      echo "<br>";
+      // echo "{$route['uri']} {$uri} {$route['method']} {$method}";
+      // echo "<br>";
       if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
         return require basePath($route['controller']); // this is throwing an error
       }
