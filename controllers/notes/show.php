@@ -1,8 +1,10 @@
 <?php
 use Core\Database;
+use Core\App;
 
-$config = require basePath('config.php');
-$db = new Database($config['database']);
+// $config = require basePath('config.php');
+// $db = new Database($config['database']);
+$db = App::resolve(Database::class);
 $query = "select * from notes where id = :noteId";
 
 // if ($_SERVER['REQUEST_METHOD'] === 'POST') {

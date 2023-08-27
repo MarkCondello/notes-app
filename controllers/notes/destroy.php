@@ -1,8 +1,15 @@
 <?php
+use Core\App;
 use Core\Database;
 
-$config = require basePath('config.php');
-$db = new Database($config['database']);
+// use Core\Database;
+
+// $config = require basePath('config.php');
+// $db = new Database($config['database']);
+$db = App::resolve(Database::class);
+
+// dd($db);
+
 $note = $db->query("select * from notes where id = :noteId", [
   'noteId' => $_POST['id'],
 ])->findOrFail();
