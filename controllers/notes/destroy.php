@@ -2,13 +2,10 @@
 use Core\App;
 use Core\Database;
 
-// use Core\Database;
-
 // $config = require basePath('config.php');
 // $db = new Database($config['database']);
 $db = App::resolve(Database::class);
-
-// dd($db);
+// dd('Reached DESTROY');
 
 $note = $db->query("select * from notes where id = :noteId", [
   'noteId' => $_POST['id'],

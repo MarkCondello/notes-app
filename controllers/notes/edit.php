@@ -1,20 +1,21 @@
 <?php
+
 use Core\Database;
 use Core\App;
 
-// $config = require basePath('config.php');
-// $db = new Database($config['database']);
 $db = App::resolve(Database::class);
 $query = "select * from notes where id = :noteId";
 
 $note = $db->query($query, [
   'noteId' => $_GET['id'],
-  ])->findOrFail();
+])->findOrFail();
 
+
+// dd($note);
 authorize($note['user_id'] == 1);
 
-require view('notes/show.view.php', [
-  'bannerTitle' => 'My note',
+require view('notes/edit.view.php', [
+  'bannerTitle' => 'Edit a note',
+  'errors' => [],
   'note' => $note,
 ]);
-

@@ -8,11 +8,20 @@ require basePath('views/partials/banner.php'); ?>
       <a href="/notes" class="text-blue-500 underline">Go back</a>
     </p>
     <p><?= htmlspecialchars($note['body']) ?></p>
-    <form class="mt-6" method="POST" action="/notes">
-      <input type="hidden" name="_method" value="DELETE" />
-      <input type="hidden" name="id" value="<?= $note['id'] ?>" />
-      <button type="submit" class="text-sm text-red-500">Delete</button>
-    </form>
+    <footer class="pt-5 flex items-center justify-start">
+      <a
+        href="/note/edit?id=<?= $note['id'] ?>"
+        class="text-sm text-blue-500 border border-current p-4 pt-2 pb-2 rounded mr-4"
+      >Edit</a>
+      <form  method="POST" action="/note">
+        <input type="hidden" name="_method" value="DELETE" />
+        <input type="hidden" name="id" value="<?= $note['id'] ?>" />
+        <button type="submit"
+          class="text-sm text-red-500 border border-current p-4 pt-2 pb-2 rounded"
+
+        >Delete</button>
+      </form>
+    </footer>
   </div>
 </main>
 <?php
