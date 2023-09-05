@@ -8,8 +8,6 @@ use Core\App;
 $db = App::resolve(Database::class);
 $errors = [];
 
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  // dd(Validator::email('test@test.com'));
 if (isset($_POST['body'])) {
   if (! Validator::string($_POST['body'], 1, 100)) {
     $errors['body'] = 'A body of no more than 100 characters is required.';
@@ -27,7 +25,6 @@ if (isset($_POST['body'])) {
 } else { // provide error message
   $errors['body'] = 'A body is required';
 }
-// }
 
 require view('notes/create.view.php', [
   'bannerTitle' => 'Create a note',

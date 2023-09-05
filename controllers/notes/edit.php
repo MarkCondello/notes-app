@@ -10,8 +10,6 @@ $note = $db->query($query, [
   'noteId' => $_GET['id'],
 ])->findOrFail();
 
-
-// dd($note);
 authorize($note['user_id'] == 1);
 
 require view('notes/edit.view.php', [
