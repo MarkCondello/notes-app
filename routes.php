@@ -12,3 +12,7 @@ $router->post('/notes', 'controllers/notes/store.php'); // uri to save the note
 
 $router->get('/note/edit', 'controllers/notes/edit.php'); // uri to update a note
 $router->patch('/note', 'controllers/notes/update.php'); // uri to save the updated note
+
+
+$router->get('/register', 'controllers/registration/create.php');
+$router->post('/register', 'controllers/registration/store.php');
