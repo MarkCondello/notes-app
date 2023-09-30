@@ -1,6 +1,6 @@
 <?php
 // dd('Login');
 
-require view('sessions/login.php', [
+require view('sessions/login.view.php', [
   'bannerTitle' => 'Login',
 ]);
