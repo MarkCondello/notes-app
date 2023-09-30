@@ -5,20 +5,19 @@ use Core\App;
 
 $db = App::resolve(Database::class);
 $errors = [];
-
 $email = $_POST['email'];
 $password = $_POST['password'];
 
 if (! Validator::email($email)) {
-  $errors['email'] = 'Please enter a valid email';
+  $errors['email'] = 'Please enter a valid email.';
 }
 if (! Validator::string($password, 3, 255)) {
-  $errors['password'] = 'Please enter a valid password';
+  $errors['password'] = 'Please enter a valid password.';
 }
 
 if (!empty($errors)) {
   require view('registration/create.view.php', [
-    'bannerTitle' => 'Register ..',
+    'bannerTitle' => 'Register..',
     'errors' => $errors
   ]);
 }
@@ -34,8 +33,8 @@ if ($user) {
 } else {
   $db->query('INSERT INTO users(email, password) VALUES(:email, :password)', [
     'email' => $email,
-    'password' => $password
-    // 'password' => password_hash($password, PASSWORD_DEFAULT)
+    // 'password' => $password // don't ever save passwords like this
+    'password' => password_hash($password, PASSWORD_BCRYPT)
   ]);
 
   $_SESSION['user'] = [
