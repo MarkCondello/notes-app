@@ -15,7 +15,6 @@ if (! Validator::email($email)) {
 if (! Validator::string($password)) {
   $errors['password'] = 'Please enter a valid password.';
 }
-
 if (!empty($errors)) {
   require view('sessions/create.view.php', [
     'errors' => $errors
@@ -26,24 +25,18 @@ $user = $db->query('SELECT * FROM users WHERE email = :email', [
   'email' => $email
 ])->find();
 
-if (! $user) {
-  return view('sessions/login.view.php', [
-    'errors' => [
-      'email' => 'No matching account found for that email address.'
-    ]
-  ]);
-}
-
-if (password_verify($password, $user['password'])) {
-  login([
-    'email' => $email,
-  ]);
-  header('location: /');
-  exit();
+if ($user) {
+  if (password_verify($password, $user['password'])) {
+    login([
+      'email' => $email,
+    ]);
+    header('location: /');
+    exit();
+  }
 }
 
 return view('sessions/login.view.php', [
   'errors' => [
-    'password' => 'No matching account found for that email address and password.'
+    'password' => 'No matching account found for that email address or password.'
   ]
 ]);
