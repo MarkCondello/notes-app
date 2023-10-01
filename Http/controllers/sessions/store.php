@@ -1,23 +1,25 @@
 <?php
 
 use Core\Database;
-use Core\Validator;
+// use Core\Validator;
+use Http\Forms\SessionForm;
 use Core\App;
 
 $db = App::resolve(Database::class);
-$errors = [];
+// $errors = [];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-if (! Validator::email($email)) {
-  $errors['email'] = 'Please enter a valid email.';
-}
-if (! Validator::string($password)) {
-  $errors['password'] = 'Please enter a valid password.';
-}
-if (!empty($errors)) {
-  require view('sessions/create.view.php', [
-    'errors' => $errors
+$sessionForm = new SessionForm;
+// if (! Validator::email($email)) {
+//   $errors['email'] = 'Please enter a valid email.';
+// }
+// if (! Validator::string($password)) {
+//   $errors['password'] = 'Please enter a valid password.';
+// }
+if ($sessionForm->isInvalid($email, $password)) {
+  require view('sessions/login.view.php', [
+    'errors' => $sessionForm->errors(),
   ]);
 }
 

@@ -2,8 +2,8 @@
 namespace Core;
 
 use Core\Response;
-use Core\Middleware\Auth;
-use Core\Middleware\Guest;
+// use Core\Middleware\Auth;
+// use Core\Middleware\Guest;
 use Core\Middleware\Middleware;
 
 class Router {
@@ -56,7 +56,7 @@ class Router {
         // if ($route['middleware'] === 'auth') {
         //   (new Auth)->handle();
         // }
-        return require basePath($route['controller']); // this is throwing an error
+        return require basePath('Http/controllers/'.$route['controller']); // this is throwing an error
       }
     }
     $this->abort();
