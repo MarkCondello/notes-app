@@ -10,7 +10,7 @@ $note = $db->query($query, [
   'noteId' => $_GET['id'],
 ])->findOrFail();
 
-authorize($note['user_id'] == 1);
+authorize($note['user_id'] == $_SESSION['user']['id']);
 
 require view('notes/edit.view.php', [
   'bannerTitle' => 'Edit a note',

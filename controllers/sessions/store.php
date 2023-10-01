@@ -26,9 +26,12 @@ $user = $db->query('SELECT * FROM users WHERE email = :email', [
 ])->find();
 
 if ($user) {
+  // var_dump($user);
+
   if (password_verify($password, $user['password'])) {
     login([
       'email' => $email,
+      'id' => $user['id']
     ]);
     header('location: /');
     exit();

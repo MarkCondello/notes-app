@@ -11,7 +11,7 @@ $note = $db->query("select * from notes where id = :noteId", [
   'noteId' => $_POST['id'],
 ])->findOrFail();
 
-authorize($note['user_id'] == 1);
+authorize($note['user_id'] == $_SESSION['user']['id']);
 
 $db->query('DELETE FROM notes where id = :noteId', [
   'noteId' => $_POST['id'],

@@ -14,7 +14,7 @@ $note = $db->query($query, [
   'id' => $_POST['id'],
 ])->findOrFail();
 
-authorize($note['user_id'] == 1);
+authorize($note['user_id'] == $_SESSION['user']['id']);
 
 if (isset($_POST['body'])) {
   if (! Validator::string($_POST['body'], 1, 100)) {

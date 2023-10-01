@@ -9,8 +9,11 @@ function logout(){
 }
 
 function login($user) {
+  // var_dump('in login method', $user);
   $_SESSION['user'] = [
-    'email' => $user['email']
+    'email' => $user['email'],
+    // probs needs an id yeah?
+    'id' => $user['id'],
   ];
 
   session_regenerate_id(true);
