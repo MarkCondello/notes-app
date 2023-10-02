@@ -25,8 +25,10 @@ if (isset($_POST['body'])) {
       'id' => $_POST['id'],
       'body' => $_POST['body'],
     ]);
-    header('Location: '. '/note?id=' . $_POST['id']);
-    die();
+
+    redirect('/note?id=' . $_POST['id']);
+    // header('Location: '. '/note?id=' . $_POST['id']);
+    // die();
   }
 } else { // provide error message
   $errors['body'] = 'A body is required';

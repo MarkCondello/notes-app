@@ -3,6 +3,8 @@ use Core\Database;
 use Core\Validator;
 use Core\App;
 
+// This probs needs it own Form class
+
 $db = App::resolve(Database::class);
 $errors = [];
 $email = $_POST['email'];
@@ -28,8 +30,9 @@ $user = $db->query('SELECT * FROM users WHERE email = :email', [
 ])->find();
 
 if ($user) {
-  header('location: /'); // todo: send user to login
-  exit();
+  redirect('/login');
+  // header('location: /'); // todo: send user to login
+  // exit();
 } else {
   $db->query('INSERT INTO users(email, password) VALUES(:email, :password)', [
     'email' => $email,
@@ -41,6 +44,7 @@ if ($user) {
     'email' => $email,
   ];
 
-  header('location: /'); // todo: send user to account
-  exit();
+  redirect('/');
+  // header('location: /');
+  // exit();
 }

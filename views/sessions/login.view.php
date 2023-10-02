@@ -40,3 +40,8 @@ require basePath('views/partials/banner.php');
 </main>
 <?php
 require basePath('views/partials/foot.php');
+
+// couldn't get this to work
+unset($_SESSION['_flash']);
+// var_dump('LOGIN: ');
+// var_dump( $_SESSION);

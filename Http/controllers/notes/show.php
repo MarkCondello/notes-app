@@ -2,14 +2,12 @@
 use Core\Database;
 use Core\App;
 
-// $config = require basePath('config.php');
-// $db = new Database($config['database']);
 $db = App::resolve(Database::class);
 $query = "select * from notes where id = :noteId";
 
 $note = $db->query($query, [
   'noteId' => $_GET['id'],
-  ])->findOrFail();
+])->findOrFail();
 
 authorize($note['user_id'] == $_SESSION['user']['id']);
 
