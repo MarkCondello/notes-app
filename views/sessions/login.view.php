@@ -1,4 +1,7 @@
 <?php
+
+use Core\Session;
+
 require basePath('views/partials/head.php');
 require basePath('views/partials/nav.php');
 require basePath('views/partials/banner.php');
@@ -41,7 +44,8 @@ require basePath('views/partials/banner.php');
 <?php
 require basePath('views/partials/foot.php');
 
+Session::unflash();
 // couldn't get this to work
-unset($_SESSION['_flash']);
+// unset($_SESSION['_flash']);
 // var_dump('LOGIN: ');
 // var_dump( $_SESSION);

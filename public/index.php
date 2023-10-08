@@ -4,7 +4,6 @@
 session_start();
 
 // var_dump($_SESSION['_flash'] ?? []);
-// const BASE_PATH = 'https://notes-app.dev/';
 const BASE_PATH = __DIR__ . '/../';
 
 require BASE_PATH . 'Core/functions.php';
@@ -31,4 +30,4 @@ $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 $router->route($uri, $method);
 
 // dd('Reached the end of index.php');
-// var_dump( $_SESSION);
+// var_dump( $_SESSION); // SESSION is not available due to an error.
