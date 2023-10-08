@@ -1,6 +1,10 @@
 <?php
 use Core\Response;
+use Core\Session;
 
+function old($key, $default = ''){
+  return Session::get('old')['email'] ?? $default;
+}
 function redirect($path) {
   header('location: ' . $path);
   exit();
