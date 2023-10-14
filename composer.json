@@ -1,0 +1,16 @@
+{
+    "name": "sgyagency/laracasts-notes-app",
+    "authors": [
+        {
+            "name": "Mark",
+            "email": "mark.condello@sparkgreen.com.au"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "Http\\": "Http/"
+        }
+    }
+}
