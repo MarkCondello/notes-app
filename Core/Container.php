@@ -17,6 +17,7 @@ class Container
       throw new \Exception("No {$key} is bound in the container.");
     }
 
+    // return static::$bindings[$key]; /// for testing the unit test only
     return call_user_func(static::$bindings[$key]);
   }
 }

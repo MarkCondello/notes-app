@@ -6,11 +6,21 @@
             "email": "mark.condello@sparkgreen.com.au"
         }
     ],
-    "require": {},
+    "require": {
+        "illuminate/collections": "^10.28"
+    },
     "autoload": {
         "psr-4": {
             "Core\\": "Core/",
             "Http\\": "Http/"
+        }
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.23"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
         }
     }
 }
